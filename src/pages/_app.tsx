@@ -2,6 +2,7 @@ import React from 'react'
 import type { AppProps } from 'next/app'
 import { Provider } from 'next-auth/client'
 import Head from 'next/head'
+import Image from 'next/image'
 
 import { Header } from '@/components'
 import '../styles/globals.css'
@@ -15,8 +16,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-      <Component {...pageProps} />
+      <main>
+        <Header />
+        <Component {...pageProps} />
+      </main>
     </Provider>
   )
 }

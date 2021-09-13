@@ -20,6 +20,11 @@ a {
 }
 
 body {
-  @apply text-gray-100;
-  background-image: src('/assets/images/Background.png');
+  background-image: url("/assets/images/Background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body {
+  @apply bg-gray-800 text-gray-100;
 }

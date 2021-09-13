@@ -4,7 +4,7 @@ import Image from 'next/image'
 export const Header = () => {
   return (
     <header>
-      <div className="container flex justify-center p-4">
+      <div className="flex justify-center p-4">
         <Image
           src="/assets/images/Header.png"
           alt="Header"
