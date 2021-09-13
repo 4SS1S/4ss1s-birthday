@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { Provider } from 'next-auth/client'
 import Head from 'next/head'
 
+import { Header } from '@/components'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header />
       <Component {...pageProps} />
     </Provider>
   )

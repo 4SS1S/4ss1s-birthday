@@ -25,6 +25,7 @@
     ],
     "rules": {
         "prettier/prettier": "error",
-        "no-use-before-define": "off"
+        "no-use-before-define": "off",
+        "no-unused-vars": "off"
     }
 }
