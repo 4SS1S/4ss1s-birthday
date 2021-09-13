@@ -2,7 +2,6 @@ import React from 'react'
 import type { AppProps } from 'next/app'
 import { Provider } from 'next-auth/client'
 import Head from 'next/head'
-import Image from 'next/image'
 
 import { Header } from '@/components'
 import '../styles/globals.css'

@@ -10,6 +10,8 @@ export const Header = () => {
           alt="Header"
           width={277}
           height={85}
+          placeholder="blur"
+          blurDataURL={'/assets/images/Header.png'}
         />
       </div>
     </header>
