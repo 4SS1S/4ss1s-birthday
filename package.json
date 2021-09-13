@@ -6,17 +6,55 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest",
+    "release": "standard-version",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major"
   },
   "dependencies": {
     "next": "11.1.2",
+    "next-auth": "^3.29.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@types/next-auth": "^3.15.0",
     "@types/react": "17.0.20",
-    "eslint": "7.32.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "autoprefixer": "^10.3.4",
+    "eslint": "^7.32.0",
     "eslint-config-next": "11.1.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.25.1",
+    "husky": "^7.0.2",
+    "postcss": "^8.3.6",
+    "prettier": "^2.4.0",
+    "prisma": "^3.0.2",
+    "standard-version": "^9.3.1",
+    "tailwindcss": "^2.2.15",
     "typescript": "4.4.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format --no-verify",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run release -- && git add -A ."
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
