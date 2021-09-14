@@ -1,36 +1,18 @@
 /** @type {import('next').NextConfig} */
+const path = require('path')
 const withPWA = require('next-pwa')
-const withOffline = require('next-offline')
+const runtimeCaching = require('next-pwa/cache')
 
-module.exports = {
+module.exports = withPWA({
   reactStrictMode: true,
-  withPWA: () =>
-    withPWA({
-      pwa: {
-        dest: 'public',
-        disable: process.env.NODE_ENV === 'development',
-      },
-      reactStrictMode: true,
-    }),
-  withOffline: () =>
-    withOffline({
-      workboxOpts: {
-        swDest: 'public/service-worker.js',
-        runtimeCaching: [
-          {
-            handler: 'networkFirst',
-            options: {
-              cacheName: 'api-cache',
-              expiration: {
-                maxEntries: 200,
-                maxAgeSeconds: 60 * 60 * 24 * 30,
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
-          },
-        ],
-      },
-    }),
-}
+  pwa: {
+    dest: 'public',
+    runtimeCaching,
+  },
+
+  // This is not required to make it into a PWA, but is a nice way to clean up your imports
+  webpack: config => {
+    config.resolve.modules.push(path.resolve('./'))
+    return config
+  },
+})
