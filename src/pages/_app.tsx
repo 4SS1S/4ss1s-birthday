@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import { Provider } from 'next-auth/client'
 import Head from 'next/head'
 
-import { Header } from '@/components'
+import { Header, DialogBox } from '@/components'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <main>
         <Header />
+
         <Component {...pageProps} />
       </main>
     </Provider>
