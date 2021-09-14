@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import type { NextPage } from 'next'
-import { useSession } from 'next-auth/client'
+import { useSession, signIn } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -86,30 +86,42 @@ const Home: NextPage = () => {
         </DialogBox>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 1,
-          type: 'spring',
-          bounce: 0.5,
-          delay: 2,
-        }}
-        className="absolute bottom-5 flex flex-col space-y-3 justify-center items-center w-full"
-      >
-        <div className="bg-blue-800 w-4/6 text-sm text-center p-2 rounded-sm shadow-md relative">
+      <div className="absolute bottom-5 flex flex-col space-y-3 justify-center items-center w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1,
+            type: 'spring',
+            bounce: 0.5,
+            delay: 2,
+          }}
+          className="bg-blue-800 w-4/6 text-sm text-center p-2 rounded-sm shadow-md relative"
+          onClick={() => signIn('facebook')}
+        >
           <span className="absolute left-0 inset-y-0 flex items-center pl-3">
             <FaFacebookF className="text-white" />
           </span>
           Entrar com o Facebook
-        </div>
-        <div className="bg-white w-4/6 text-sm text-center p-2 rounded-sm shadow-md text-gray-700 relative">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1,
+            type: 'spring',
+            bounce: 0.5,
+            delay: 2.2,
+          }}
+          className="bg-white w-4/6 text-sm text-center p-2 rounded-sm shadow-md text-gray-700 relative"
+          onClick={() => signIn('google')}
+        >
           <div className="absolute left-0 inset-y-0 flex items-center pl-3">
             <FcGoogle />
           </div>
           Entrar com o Google
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   )
 }
