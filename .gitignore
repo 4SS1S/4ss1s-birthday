@@ -6,5 +6,4 @@ yarn-error.log
 /public/sw.js*
 /public/workbox-*
 /public/fallback-development.js
-/prisma
-!/prisma/schema.prisma
+/prisma/migrations
