@@ -136,14 +136,14 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
   const session = await getSession(ctx)
   const user = session?.user || {}
 
-  if (user) {
-    return {
-      redirect: {
-        destination: '/sign-in',
-        permanent: false,
-      },
-    }
-  }
+  // if (user) {
+  //   return {
+  //     redirect: {
+  //       destination: '/sign-in',
+  //       permanent: false,
+  //     },
+  //   }
+  // }
 
   return {
     props: {
