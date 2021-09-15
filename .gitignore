@@ -7,3 +7,4 @@ yarn-error.log
 /public/workbox-*
 /public/fallback-development.js
 /prisma/migrations
+/public/sw.js
