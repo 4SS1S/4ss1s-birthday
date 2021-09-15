@@ -1,15 +1,22 @@
 import React from 'react'
 
 import { DialogBox } from '@/components'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import { getSession } from 'next-auth/client'
+import { Session } from 'next-auth'
 
-const ConfirmPresence = () => {
+const ConfirmPresence = (
+  props: InferGetServerSidePropsType<typeof getServerSideProps>
+) => {
+  const session = props.data as Session
+
   return (
     <div>
       <div className="mt-12">
         <DialogBox>
           <strong className="tracking-wide">
-            Você fulano de tal, confirma presença no dia 01/10 (sexta-feira) às
-            19h no 4beer?
+            Você {session.user?.name}, confirma presença no dia 01/10
+            (sexta-feira) às 19h no 4beer?
           </strong>
 
           <div className="font-thin mt-6 mb-2">
@@ -36,6 +43,25 @@ const ConfirmPresence = () => {
       </div>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ctx => {
+  const session = await getSession(ctx)
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
+
+  return {
+    props: {
+      data: session,
+    },
+  }
 }
 
 export default ConfirmPresence
