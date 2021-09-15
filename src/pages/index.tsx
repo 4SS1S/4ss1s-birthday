@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import type { NextPage } from 'next'
-import { useSession, signIn } from 'next-auth/client'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import { useSession, signIn, getSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -9,29 +9,35 @@ import { FcGoogle } from 'react-icons/fc'
 
 import { DialogBox } from '@/components'
 
-const Home: NextPage = () => {
+const Home = (
+  props: InferGetServerSidePropsType<typeof getServerSideProps>
+) => {
   const [session, loading] = useSession()
 
   const router = useRouter()
 
   useEffect(() => {
     if (session) {
-      router.push('/dashboard')
+      router.push('/sign-in')
     }
   }, [session])
 
+  if (loading) {
+    return <div>Loading</div>
+  }
+
   return (
-    <div className="">
+    <div>
       <div className="absolute z-0 w-full top-28">
         <Image
-          src="/assets/images/chop.png"
+          src="/assets/images/cerveja.png"
           alt="Chop"
-          width={416}
-          height={319}
+          width={1120}
+          height={581}
           loading="eager"
           placeholder="blur"
           layout="responsive"
-          blurDataURL={`/assets/images/chop.png`}
+          blurDataURL={`/assets/images/cerveja.png`}
         />
       </div>
 
@@ -124,6 +130,26 @@ const Home: NextPage = () => {
       </div>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ctx => {
+  const session = await getSession(ctx)
+  const user = session?.user || {}
+
+  // if (user) {
+  //   return {
+  //     redirect: {
+  //       destination: '/sign-in',
+  //       permanent: false,
+  //     },
+  //   }
+  // }
+
+  return {
+    props: {
+      user,
+    },
+  }
 }
 
 export default Home
