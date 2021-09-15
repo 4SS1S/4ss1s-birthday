@@ -11,8 +11,11 @@ const ConfirmPresence = (
   const session = props.data as Session
 
   return (
-    <div>
-      <div className="mt-12">
+    <div className="flex w-screen justify-center flex-col items-center">
+      <div className="overflow-hidden rounded-full shadow-lg">
+        <img src={session.user?.image || ''} alt={session.user?.name || ''} />
+      </div>
+      <div className="mt-4">
         <DialogBox>
           <strong className="tracking-wide">
             Você {session.user?.name}, confirma presença no dia 01/10
