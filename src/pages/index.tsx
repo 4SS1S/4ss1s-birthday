@@ -134,8 +134,9 @@ const Home = (
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const session = await getSession(ctx)
+  const user = session?.user || {}
 
-  if (session) {
+  if (user) {
     return {
       redirect: {
         destination: '/sign-in',
@@ -146,7 +147,7 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
 
   return {
     props: {
-      data: null,
+      user,
     },
   }
 }
