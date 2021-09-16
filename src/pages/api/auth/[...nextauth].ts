@@ -23,9 +23,20 @@ export default NextAuth({
       server: process.env.MAIL_SERVER,
       from: 'NextAuth.js <no-reply@example.com>',
     }),
+
+    Providers.Instagram({
+      clientId: process.env.INSTAGRAM_ID,
+      clientSecret: process.env.INSTAGRAM_SECRET,
+    }),
   ],
   // Optional SQL or MongoDB database to persist users
   database: process.env.DATABASE_URL,
+
+  callbacks: {
+    redirect: async (url, baseUrl) => {
+      return Promise.resolve(url)
+    },
+  },
 
   // Optional session secret
   // secret: process.env.SECRET,

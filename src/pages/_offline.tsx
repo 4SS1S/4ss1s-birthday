@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Offline = () => {
+const Offline = (props: any) => {
   return (
     <div>
       <h1>Offline</h1>
