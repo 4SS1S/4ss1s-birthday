@@ -40,6 +40,10 @@ export default NextAuth({
     },
   },
 
+  jwt: {
+    secret: process.env.JWT_SECRET,
+  },
+
   // Optional session secret
   // secret: process.env.SECRET,
 

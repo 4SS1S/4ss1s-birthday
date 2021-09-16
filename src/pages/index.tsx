@@ -132,18 +132,27 @@ const Home = (
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ctx => {
-  const session = await getSession(ctx)
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  res,
+  query,
+}) => {
+  const session = await getSession({ req })
   const user = session?.user || {}
 
-  // if (user) {
-  //   return {
-  //     redirect: {
-  //       destination: '/sign-in',
-  //       permanent: false,
-  //     },
-  //   }
-  // }
+  const { callbackUrl } = query
+
+  if (session && res && session.accessToken) {
+    res.writeHead(302, {
+      Location: callbackUrl || '/sign-in',
+    })
+    res.end()
+    return {
+      props: {
+        user,
+      },
+    }
+  }
 
   return {
     props: {
