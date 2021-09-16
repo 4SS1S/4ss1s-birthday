@@ -34,7 +34,9 @@ export default NextAuth({
 
   callbacks: {
     redirect: async (url, baseUrl) => {
-      return Promise.resolve(url)
+      return url.startsWith(baseUrl)
+        ? Promise.resolve(url)
+        : Promise.resolve(baseUrl)
     },
   },
 
