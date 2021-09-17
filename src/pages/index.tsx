@@ -102,7 +102,7 @@ const Home = (
             bounce: 0.5,
             delay: 2,
           }}
-          className="bg-blue-800 w-4/6 text-sm text-center p-2 rounded-sm shadow-md relative"
+          className="bg-blue-800 w-4/6 text-sm text-center p-2 rounded-sm shadow-md relative cursor-pointer"
           onClick={() => signIn('facebook')}
         >
           <span className="absolute left-0 inset-y-0 flex items-center pl-3">
@@ -119,7 +119,7 @@ const Home = (
             bounce: 0.5,
             delay: 2.2,
           }}
-          className="bg-white w-4/6 text-sm text-center p-2 rounded-sm shadow-md text-gray-700 relative"
+          className="bg-white w-4/6 text-sm text-center p-2 rounded-sm shadow-md text-gray-700 relative cursor-pointer"
           onClick={() => signIn('google')}
         >
           <div className="absolute left-0 inset-y-0 flex items-center pl-3">
@@ -132,18 +132,27 @@ const Home = (
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ctx => {
-  const session = await getSession(ctx)
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  res,
+  query,
+}) => {
+  const session = await getSession({ req })
   const user = session?.user || {}
 
-  // if (user) {
-  //   return {
-  //     redirect: {
-  //       destination: '/sign-in',
-  //       permanent: false,
-  //     },
-  //   }
-  // }
+  const { callbackUrl } = query
+
+  if (session && res && session.accessToken) {
+    res.writeHead(302, {
+      Location: callbackUrl || '/sign-in',
+    })
+    res.end()
+    return {
+      props: {
+        user,
+      },
+    }
+  }
 
   return {
     props: {
