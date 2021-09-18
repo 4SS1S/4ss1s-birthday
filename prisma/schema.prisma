@@ -95,3 +95,16 @@ model Comment {
 
   @@map(name: "comments")
 }
+
+model Event {
+  id          Int      @id @default(autoincrement())
+  location    String   @map(name: "location")
+  title       String   @map(name: "title")
+  description String   @map(name: "description")
+  start       DateTime @map(name: "start")
+  end         DateTime @map(name: "end")
+  latitude    Float?   @map(name: "latitude")
+  longitude   Float?   @map(name: "longitude")
+  createdAt   DateTime @default(now()) @map(name: "created_at")
+  updatedAt   DateTime @default(now()) @map(name: "updated_at")
+}
