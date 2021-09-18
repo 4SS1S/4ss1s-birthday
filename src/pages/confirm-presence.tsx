@@ -26,12 +26,24 @@ const ConfirmPresence = (
             Ao confirmar estar no local, você estará aceitando também:
           </div>
           <ul className="font-light ">
-            <li>Boa Comida</li>
-            <li>Ótimas cervejas</li>
-            <li>Ambiente agradável e descontraido</li>
-            <li>Sua presença é um grande presente ♥</li>
-            <li>Não precisa levar presente</li>
-            <li>Não precisa gastar no local</li>
+            <li>
+              <span>✔️</span> Boa Comida
+            </li>
+            <li>
+              <span>✔️</span>Ótimas cervejas
+            </li>
+            <li>
+              <span>✔️</span>Ambiente agradável e descontraido
+            </li>
+            <li>
+              <span>✔️</span>Sua presença é um grande presente ❤️
+            </li>
+            <li>
+              <span>❌</span> Não precisa levar presente
+            </li>
+            <li>
+              <span>❌</span>Não precisa gastar no local
+            </li>
           </ul>
 
           <div className="relative mt-6 h-7" />
