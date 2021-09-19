@@ -6,7 +6,7 @@ import Head from 'next/head'
 import { Header } from '@/components'
 import '../styles/globals.css'
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <Provider session={pageProps.session}>
       <Head>
