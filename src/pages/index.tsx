@@ -23,7 +23,20 @@ const Home = (
   }, [session])
 
   if (loading) {
-    return <div>Loading</div>
+    return (
+      <div className="flex w-full h-full justify-center items-center">
+        Carregando
+      </div>
+    )
+  }
+
+  if (session) {
+    return (
+      <div className="flex w-full h-full justify-center items-center">
+        <h1>Você já está logado</h1>
+        Agora você estará sendo redirecionando.
+      </div>
+    )
   }
 
   return (
