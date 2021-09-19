@@ -9,7 +9,7 @@
     "lint": "next lint",
     "test": "jest",
     "release": "standard-version",
-    "lint:fix": "eslint . --ext --fix .ts,.tsx,.json",
+    "lint:fix": "eslint . --fix .ts,.tsx,.json",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
@@ -69,7 +69,7 @@
   },
   "lint-staged": {
     "*.ts": [
-      "yarn lint:fix"
+      "yarn format"
     ]
   }
 }

@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 import prisma from '@/lib/prisma'
 
-export default async function PartyConfirmation(
+export default async function EventConfirmation(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -15,6 +15,8 @@ export default async function PartyConfirmation(
   }
 
   if (req.method === 'POST') {
+    console.log(req.body)
+
     res.status(200).json({
       message: 'Thank you for your submission!',
     })
