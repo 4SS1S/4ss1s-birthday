@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.3...v0.1.4) (2021-09-19)
+
+
+### Features
+
+* go to selected pages ([ede062f](https://github.com/mokkapps/changelog-generator-demo/commits/ede062f1cd802ed79185b19eb1b0d031d5b2e766))
+* home screen ([2cc3b54](https://github.com/mokkapps/changelog-generator-demo/commits/2cc3b544e7ea964135bebd3d50fbb1911f4e22a4))
+* profile picture component ([ac88f7d](https://github.com/mokkapps/changelog-generator-demo/commits/ac88f7ddb21cc09853a3cb11a369f6a348886b77))
+
 ### 0.1.3 (2021-09-19)
 
 ### Features
