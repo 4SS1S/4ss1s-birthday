@@ -1,24 +1,47 @@
 import React from 'react'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 
 import { DialogBox } from '@/components'
 import { getSession } from 'next-auth/client'
 import { Session } from 'next-auth'
 import { prisma } from '../lib'
-import { EventProps } from 'event'
 
 const ConfirmPresence = (
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) => {
   const session = props.data as Session
 
+  const router = useRouter()
+
   const handleCancel = () => {
-    // TODO: redirect to cancel page
+    axios
+      .post('/api/event-confirmation', {
+        userId: props.user.id,
+        accepted: false,
+      })
+      .then(e => {
+        router.push('/cancel')
+      })
+      .catch(err => {
+        // TODO: create error page
+        console.log(err)
+      })
   }
 
   const handleConfirm = () => {
-    // TODO: redirect to confirm page
+    axios
+      .post('/api/event-confirmation', {
+        userId: props.user.id,
+        accepted: true,
+      })
+      .then(e => {
+        router.push('/home')
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   return (
@@ -81,6 +104,11 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
   const session = await getSession(ctx)
 
   const event = await prisma.event?.findFirst()
+  const user = await prisma.user?.findUnique({
+    where: {
+      email: session?.user?.email || '',
+    },
+  })
 
   if (!session) {
     return {
@@ -94,6 +122,9 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
   return {
     props: {
       data: session,
+      user: {
+        id: user?.id || 0,
+      },
       event: {
         location: event?.location,
         date: `${new Date(event?.start as Date).getDate()}`,
