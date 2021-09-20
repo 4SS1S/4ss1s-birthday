@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Session } from 'next-auth'
+import { useRouter } from 'next/router'
 import { getSession } from 'next-auth/client'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 
@@ -11,14 +12,17 @@ const Cancel = (
 ) => {
   const session = props.data as Session
 
+  const router = useRouter()
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     axios
       .post('/api/cancel', {
-        sessionId: session.id,
+        userId: session.id,
       })
       .then(() => {
-        window.location.href = '/'
+        // TODO: redirect to a page that says "you have cancelled"
+        // router.push('/')
       })
       .catch(err => {
         console.error(err)
@@ -26,7 +30,14 @@ const Cancel = (
   }
 
   const handleChangeMind = () => {
-    //
+    axios
+      .delete(`/api/event-confirmation/${session.id}`)
+      .then(() => {
+        router.push('/confirm-presence')
+      })
+      .catch(err => {
+        console.error(err)
+      })
   }
 
   return (

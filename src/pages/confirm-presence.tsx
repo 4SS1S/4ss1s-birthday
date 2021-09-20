@@ -81,8 +81,9 @@ const ConfirmPresence = (
             </li>
           </ul>
 
-          <div className="relative mt-6 h-7" />
-          <div className="w-full flex mt-5 left-0 absolute bottom-0">
+          <div className="relative mt-6 h-7 overflow-hidden" />
+
+          <div className="w-full flex mt-5 left-0 absolute bottom-0 overflow-hidden">
             <div className="absolute top-0 w-screen -left-12 h-px bg-gray-300 bg-opacity-50" />
             <button
               className="w-full border-r-2 border-opacity-50 border-gray-300 p-4 font-light"

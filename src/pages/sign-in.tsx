@@ -1,6 +1,6 @@
 import React from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { getSession, useSession } from 'next-auth/client'
+import { getSession } from 'next-auth/client'
 
 import prisma from '@/lib/prisma'
 
@@ -32,13 +32,13 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
     },
   })
 
-  const verified = await prisma.userAccept.findMany({
+  const verified = await prisma.userConfirmation?.findMany({
     where: {
       userId: user?.id,
     },
   })
 
-  if (Object.keys(verified).length === 0) {
+  if (!verified) {
     return {
       redirect: {
         destination: '/confirm-presence',
@@ -47,10 +47,22 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
     }
   }
 
-  return {
-    props: {
-      data: session,
-    },
+  const verifiedUser = verified[verified.length - 1]
+
+  if (verifiedUser?.accepted) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    }
+  } else {
+    return {
+      redirect: {
+        destination: '/cancel',
+        permanent: false,
+      },
+    }
   }
 }
 

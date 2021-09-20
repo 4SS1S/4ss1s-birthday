@@ -8,9 +8,9 @@ export interface ProfilePictureProps {
 export const ProfilePicture: React.FC<ProfilePictureProps> = ({ user }) => {
   return (
     <img
-      src={user.image || ''}
-      alt={user.name || ''}
-      className="rounded-full w-12 h-12"
+      src={user?.image || ''}
+      alt={user?.name || ''}
+      className="rounded-full w-24 h-24"
     />
   )
 }
