@@ -18,7 +18,7 @@ const Cancel = (
     e.preventDefault()
     axios
       .post('/api/cancel', {
-        sessionId: session.id,
+        userId: session.id,
       })
       .then(() => {
         // TODO: redirect to a page that says "you have cancelled"
