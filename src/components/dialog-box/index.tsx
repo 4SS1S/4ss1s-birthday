@@ -1,5 +1,15 @@
 import React from 'react'
 
+/**
+ *
+ * @description DialogBox component
+ * @param children
+ * @example
+ * return (
+ * <DialogBox>
+ *  <h1>DialogBox</h1>
+ * </DialogBox>
+ */
 export const DialogBox: React.FC = ({ children, ...props }) => {
   return (
     <div className="flex justify-center w-full" {...props}>
