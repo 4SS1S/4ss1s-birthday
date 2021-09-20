@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.6...v0.1.7) (2021-09-20)
+
+
+### Features
+
+* logout ([007b232](https://github.com/mokkapps/changelog-generator-demo/commits/007b23222cc5078921ad2e3258a075e39a30db9b))
+* new columns on database ([5a56869](https://github.com/mokkapps/changelog-generator-demo/commits/5a56869bd9f6a4847824366e67b896b5d61094e0))
+* sidebar ([eda875c](https://github.com/mokkapps/changelog-generator-demo/commits/eda875c7bb2d1b14e85602256baa8f29621033c2))
+
+
+### Bug Fixes
+
+* fix secure home ([31ba73a](https://github.com/mokkapps/changelog-generator-demo/commits/31ba73a4d2208bff663ba4d5359dbc8257d70564))
+* logout ([8ae6d78](https://github.com/mokkapps/changelog-generator-demo/commits/8ae6d78703678ce172456532178652d33f1f00f7))
+
 ### [0.1.6](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.5...v0.1.6) (2021-09-20)
 
 ### Features
