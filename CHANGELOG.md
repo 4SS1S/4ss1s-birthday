@@ -4,16 +4,14 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.1.6](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.5...v0.1.6) (2021-09-20)
 
-
 ### Features
 
-* event class ([eb10baa](https://github.com/mokkapps/changelog-generator-demo/commits/eb10baada0b328a4527edc4512242f46581aa197))
-* make routes on sign-in better ([852d807](https://github.com/mokkapps/changelog-generator-demo/commits/852d807fa0315a7fa32edaac046e95239b348733))
-
+- event class ([eb10baa](https://github.com/mokkapps/changelog-generator-demo/commits/eb10baada0b328a4527edc4512242f46581aa197))
+- make routes on sign-in better ([852d807](https://github.com/mokkapps/changelog-generator-demo/commits/852d807fa0315a7fa32edaac046e95239b348733))
 
 ### Bug Fixes
 
-* events on cancel page ([a8daf60](https://github.com/mokkapps/changelog-generator-demo/commits/a8daf60d9709c65e978fec185a6cf4a768f96e01))
+- events on cancel page ([a8daf60](https://github.com/mokkapps/changelog-generator-demo/commits/a8daf60d9709c65e978fec185a6cf4a768f96e01))
 
 ### [0.1.5](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.4...v0.1.5) (2021-09-19)
 
