@@ -6,7 +6,7 @@ import { SidebarMenu } from './sidebar-menu'
 export const Header = () => {
   return (
     <header>
-      <div className="flex p-4 justify-between">
+      <div className="flex p-4 justify-between shadow-2xl">
         <SidebarMenu />
 
         <Image

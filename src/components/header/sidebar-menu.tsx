@@ -11,6 +11,7 @@ import {
   AiOutlineLink,
   AiOutlineSetting,
   AiOutlineLogout,
+  AiOutlineBug,
 } from 'react-icons/ai'
 
 import { ProfilePicture } from '..'
@@ -60,7 +61,7 @@ export const SidebarMenu = () => {
   return (
     <div>
       <div className="relative">
-        <span className="text-3xl z-30 absolute top-5 left-0">
+        <span className="text-xl z-30 absolute top-5 left-0">
           {visible ? (
             <AiOutlineClose onClick={() => setVisible(false)} />
           ) : (
@@ -98,7 +99,7 @@ export const SidebarMenu = () => {
             <Link href="/home">
               <li className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900">
                 <span>
-                  <AiOutlineHome className="text-3xl" />
+                  <AiOutlineHome className="text-xl" />
                 </span>
                 <span className="ml-8">Home</span>
               </li>
@@ -107,7 +108,7 @@ export const SidebarMenu = () => {
             <Link href="/suggestions">
               <li className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900">
                 <span>
-                  <AiOutlineEdit className="text-3xl" />
+                  <AiOutlineEdit className="text-xl" />
                 </span>
                 <span className="ml-8">Dicas e sujestões</span>
               </li>
@@ -116,16 +117,25 @@ export const SidebarMenu = () => {
             <Link href="/change-mind">
               <li className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900">
                 <span>
-                  <AiOutlineLink className="text-3xl" />
+                  <AiOutlineLink className="text-xl" />
                 </span>
                 <span className="ml-8">Mudar de ideia</span>
+              </li>
+            </Link>
+
+            <Link href="/bug-repport">
+              <li className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900">
+                <span>
+                  <AiOutlineBug className="text-xl" />
+                </span>
+                <span className="ml-8">Achou algum bug?</span>
               </li>
             </Link>
 
             <Link href="/settings">
               <li className="p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900">
                 <span>
-                  <AiOutlineSetting className="text-3xl" />
+                  <AiOutlineSetting className="text-xl" />
                 </span>
                 <span className="ml-8">Configurações</span>
               </li>
@@ -137,7 +147,7 @@ export const SidebarMenu = () => {
               <Link href="/logout">
                 <li className="border-t-2 border-b-2 p-4 border-opacity-25 flex items-center mb-4 cursor-pointer hover:bg-gray-900">
                   <span>
-                    <AiOutlineLogout className="text-3xl" />
+                    <AiOutlineLogout className="text-xl" />
                   </span>
                   <span className="ml-8">Sair</span>
                 </li>
