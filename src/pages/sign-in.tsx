@@ -1,10 +1,12 @@
 import React from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { getSession, useSession } from 'next-auth/client'
+import { getSession } from 'next-auth/client'
 
 import prisma from '@/lib/prisma'
 
-const SignIn = () => {
+const SignIn = (
+  props: InferGetServerSidePropsType<typeof getServerSideProps>
+) => {
   return <div>SignIn</div>
 }
 
