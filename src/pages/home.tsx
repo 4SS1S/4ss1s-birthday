@@ -8,14 +8,19 @@ import { ProfilePicture, DialogBox } from '@/components'
 const Home = ({ session }: { session: Session }) => {
   return (
     <div>
-      <DialogBox>
-        <div className="absolute left-1/2 -top-10">
-          <ProfilePicture user={session.user as Session} />
-        </div>
-        <div className="mt-8">
-          <h1>Hello {session.user?.name || ''}</h1>
-        </div>
-      </DialogBox>
+      <div className="mt-12">
+        <DialogBox>
+          <div
+            className="absolute -top-0"
+            style={{ left: '50%', transform: 'translate(-50%,-50%)' }}
+          >
+            <ProfilePicture user={session.user as Session} />
+          </div>
+          <div className="mt-8">
+            <h1>Hello {session.user?.name || ''}</h1>
+          </div>
+        </DialogBox>
+      </div>
     </div>
   )
 }
