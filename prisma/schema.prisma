@@ -64,12 +64,14 @@ model VerificationRequest {
   @@map(name: "verification_requests")
 }
 
-model UserAccept {
+model UserConfirmation {
   id        Int      @id @default(autoincrement())
   userId    Int      @map(name: "user_id")
   accepted  Boolean  @map(name: "accepted")
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @default(now()) @map(name: "updated_at")
+
+  @@map(name: "user_confirmation")
 }
 
 model Post {

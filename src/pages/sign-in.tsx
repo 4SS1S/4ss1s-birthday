@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
     },
   })
 
-  const verified = await prisma.userAccept.findMany({
+  const verified = await prisma.userConfirmation.findMany({
     where: {
       userId: user?.id,
     },
