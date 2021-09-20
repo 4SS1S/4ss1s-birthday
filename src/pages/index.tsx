@@ -41,7 +41,7 @@ const Home = (
 
   return (
     <div>
-      <div className="absolute z-0 w-full top-28">
+      <div className="fixed z-0 w-full top-28 left-0">
         <Image
           src="/assets/images/cerveja.png"
           alt="Chop"
@@ -55,9 +55,9 @@ const Home = (
       </div>
 
       <motion.div
-        className="z-10 fixed top-1/3"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        className="z-10 fixed left-50 top-1/3"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{
           duration: 1,
           type: 'spring',
@@ -66,6 +66,9 @@ const Home = (
           mass: 0.6,
           velocity: 0.5,
           bounce: 1,
+        }}
+        style={{
+          transform: 'translate(-50%, -50%)',
         }}
       >
         <DialogBox>
