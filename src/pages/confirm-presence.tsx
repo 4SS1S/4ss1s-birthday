@@ -104,7 +104,7 @@ const ConfirmPresence = (
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const session = await getSession(ctx)
 
-  const event = await prisma.event?.findFirst()
+  let event = await prisma.event?.findFirst()
   const user = await prisma.user?.findUnique({
     where: {
       email: session?.user?.email || '',
@@ -117,6 +117,21 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
         destination: '/',
         permanent: false,
       },
+    }
+  }
+
+  if (!event) {
+    event = {
+      id: 0,
+      title: '',
+      description: '',
+      location: '4Beer Zona Sul',
+      end: new Date(),
+      start: new Date('2021-10-01:16:00:00'),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      latitude: 0,
+      longitude: 0,
     }
   }
 
