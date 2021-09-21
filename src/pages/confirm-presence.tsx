@@ -48,9 +48,9 @@ const ConfirmPresence = (
 
   return (
     <div className="flex w-screen justify-center flex-col items-center">
-      <div className="overflow-hidden rounded-full shadow-lg">
+      {/* <div className="overflow-hidden rounded-full shadow-lg">
         <img src={session.user?.image || ''} alt={session.user?.name || ''} />
-      </div>
+      </div> */}
       <div className="mt-4">
         <DialogBox>
           <strong className="tracking-wide">

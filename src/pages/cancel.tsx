@@ -30,14 +30,7 @@ const Cancel = (
   }
 
   const handleChangeMind = () => {
-    axios
-      .delete(`/api/event-confirmation/${session.id}`)
-      .then(() => {
-        router.push('/confirm-presence')
-      })
-      .catch(err => {
-        console.error(err)
-      })
+    router.push('/change-mind')
   }
 
   return (

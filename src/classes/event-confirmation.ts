@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import { getSession } from 'next-auth/client'
 
 import prisma from '@/lib/prisma'
 
@@ -130,11 +131,18 @@ export class EventConfirmationObject {
    * await eventConfirmation.delete()
    */
   async delete() {
-    const { userId } = this.req.body
+    const session = await getSession({ req: this.req })
+    const { userId } = this.req.query
+
+    if (typeof userId !== 'string') {
+      this.res.status(400).json({
+        message: 'User id is required',
+      })
+    }
 
     await prisma.userConfirmation.deleteMany({
       where: {
-        userId,
+        userId: parseInt(userId as string),
       },
     })
 
