@@ -10,9 +10,7 @@ export const Header = () => {
   return (
     <header>
       <div className="flex p-4 justify-between shadow-2xl">
-        {session && (
-          <SidebarMenu />
-        )}
+        {session ? <SidebarMenu /> : <span />}
 
         <Image
           src="/assets/svg/Header.svg"
