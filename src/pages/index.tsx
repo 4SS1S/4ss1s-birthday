@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useSession, signIn, getSession } from 'next-auth/client'
-import { useRouter } from 'next/router'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { FaFacebookF } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
+import { useRouter } from 'next/router'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import Head from 'next/head'
 
 import { DialogBox } from '@/components'
 
@@ -16,6 +17,41 @@ const Home = (
 
   const router = useRouter()
 
+  const Header = () => (
+    <Head>
+      <title>Aniversário do Assis</title>
+      <meta name="title" content="Aniversário do Assis" />
+      <meta
+        name="description"
+        content="Olá você está sendo convidado para o aniversário do Assis, para confirmar, informar que não irá ou mais informações, veja aqui."
+      />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://metatags.io/" />
+      <meta property="og:title" content="Aniversário do Assis" />
+      <meta
+        property="og:description"
+        content="Olá você está sendo convidado para o aniversário do Assis, para confirmar, informar que não irá ou mais informações, veja aqui."
+      />
+      <meta
+        property="og:image"
+        content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
+      />
+
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content="https://metatags.io/" />
+      <meta property="twitter:title" content="Aniversário do Assis" />
+      <meta
+        property="twitter:description"
+        content="Olá você está sendo convidado para o aniversário do Assis, para confirmar, informar que não irá ou mais informações, veja aqui."
+      />
+      <meta
+        property="twitter:image"
+        content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
+      />
+    </Head>
+  )
+
   useEffect(() => {
     if (session) {
       router.push('/sign-in')
@@ -25,6 +61,7 @@ const Home = (
   if (loading) {
     return (
       <div className="flex w-full h-full justify-center items-center">
+        <Header />
         Carregando
       </div>
     )
@@ -40,7 +77,8 @@ const Home = (
   }
 
   return (
-    <div>
+    <>
+      <Header />
       <div className="fixed z-0 w-full top-28 left-0">
         <Image
           src="/assets/images/cerveja.png"
@@ -144,7 +182,7 @@ const Home = (
           Entrar com o Google
         </motion.div>
       </div>
-    </div>
+    </>
   )
 }
 
