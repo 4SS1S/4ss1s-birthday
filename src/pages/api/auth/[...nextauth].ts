@@ -6,11 +6,6 @@ import prisma from '@/lib/prisma'
 
 export default NextAuth({
   providers: [
-    // OAuth authentication providers...
-    Providers.Apple({
-      clientId: process.env.APPLE_ID,
-      clientSecret: process.env.APPLE_SECRET,
-    }),
     Providers.Facebook({
       clientId: process.env.FACEBOOK_ID,
       clientSecret: process.env.FACEBOOK_SECRET,
@@ -20,16 +15,6 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_SECRET,
       authorizationUrl:
         'https://accounts.google.com/o/oauth2/v2/auth?prompt=consent&access_type=offline&response_type=code',
-    }),
-    // Passwordless / email sign in
-    Providers.Email({
-      server: process.env.MAIL_SERVER,
-      from: 'NextAuth.js <no-reply@example.com>',
-    }),
-
-    Providers.Instagram({
-      clientId: process.env.INSTAGRAM_ID,
-      clientSecret: process.env.INSTAGRAM_SECRET,
     }),
   ],
   // Optional SQL or MongoDB database to persist users
