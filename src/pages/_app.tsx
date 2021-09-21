@@ -3,10 +3,10 @@ import type { AppProps } from 'next/app'
 import { Provider } from 'next-auth/client'
 import Head from 'next/head'
 
-import { Header, DialogBox } from '@/components'
+import { Header } from '@/components'
 import '../styles/globals.css'
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <Provider session={pageProps.session}>
       <Head>

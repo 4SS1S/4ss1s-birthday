@@ -1,6 +1,6 @@
 {
   "name": "4ss1s_birthday",
-  "version": "0.1.2",
+  "version": "0.1.8",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +9,7 @@
     "lint": "next lint",
     "test": "jest",
     "release": "standard-version",
+    "lint:fix": "eslint . --fix .ts,.tsx,.json",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
@@ -18,6 +19,7 @@
   },
   "dependencies": {
     "@prisma/client": "^3.0.2",
+    "axios": "^0.21.4",
     "framer-motion": "^4.1.17",
     "js-cookie": "^3.0.1",
     "next": "11.1.2",
@@ -26,9 +28,11 @@
     "next-pwa": "^5.3.1",
     "pg": "^8.7.1",
     "react": "17.0.2",
+    "react-cookie": "^4.1.1",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
-    "react-loading-skeleton": "^2.2.0"
+    "react-loading-skeleton": "^2.2.0",
+    "serialize-javascript": "^6.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
@@ -67,7 +71,7 @@
   },
   "lint-staged": {
     "*.ts": [
-      "yarn lint:fix"
+      "yarn format"
     ]
   }
 }
