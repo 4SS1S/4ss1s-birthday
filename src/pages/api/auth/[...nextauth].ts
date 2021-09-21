@@ -1,5 +1,8 @@
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
+import Adapter from 'next-auth/adapters'
+
+import prisma from '@/lib/prisma'
 
 export default NextAuth({
   providers: [
@@ -30,19 +33,9 @@ export default NextAuth({
     }),
   ],
   // Optional SQL or MongoDB database to persist users
-  database: process.env.DATABASE_URL,
+  adapter: Adapter.Prisma.Adapter({ prisma }),
 
-  callbacks: {
-    redirect: async (url, baseUrl) => {
-      return url.startsWith(baseUrl)
-        ? Promise.resolve(url)
-        : Promise.resolve(baseUrl)
-    },
-  },
-
-  jwt: {
-    secret: process.env.JWT_SECRET,
-  },
+  secret: process.env.JWT_SECRET,
 
   // pages: {
   //   signIn: '/api/auth/signin',
