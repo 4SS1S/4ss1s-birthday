@@ -21,14 +21,20 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <meta name="application-name" content="PWA App" />
+          <meta name="application-name" content="Aniversário do Assis" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
             name="apple-mobile-web-app-status-bar-style"
             content="default"
           />
-          <meta name="apple-mobile-web-app-title" content="PWA App" />
-          <meta name="description" content="Best PWA App in the world" />
+          <meta
+            name="apple-mobile-web-app-title"
+            content="Aniversário do Assis"
+          />
+          <meta
+            name="description"
+            content="Você foi convidado para o aniversário do Assis, acesse para mais informações"
+          />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta
@@ -82,10 +88,10 @@ export default class MyDocument extends Document {
 
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:url" content="https://yourdomain.com" />
-          <meta name="twitter:title" content="PWA App" />
+          <meta name="twitter:title" content="Aniversário do Assis" />
           <meta
             name="twitter:description"
-            content="Best PWA App in the world"
+            content="Você foi convidado para o aniversário do Assis, acesse para mais informações"
           />
           <meta
             name="twitter:image"
@@ -93,9 +99,12 @@ export default class MyDocument extends Document {
           />
           <meta name="twitter:creator" content="@DavidWShadow" />
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="PWA App" />
-          <meta property="og:description" content="Best PWA App in the world" />
-          <meta property="og:site_name" content="PWA App" />
+          <meta property="og:title" content="Aniversário do Assis" />
+          <meta
+            property="og:description"
+            content="Você foi convidado para o aniversário do Assis, acesse para mais informações"
+          />
+          <meta property="og:site_name" content="Aniversário do Assis" />
           <meta property="og:url" content="https://yourdomain.com" />
           <meta
             property="og:image"
