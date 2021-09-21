@@ -7,7 +7,6 @@ import { SidebarMenu } from './sidebar-menu'
 export const Header = () => {
   const [session] = useSession()
 
-  const 
   return (
     <header>
       <div className="flex p-4 justify-between shadow-2xl">
