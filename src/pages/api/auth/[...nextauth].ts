@@ -44,11 +44,11 @@ export default NextAuth({
     secret: process.env.JWT_SECRET,
   },
 
-  pages: {
-    signIn: '/api/auth/signin',
-    signOut: '/api/auth/signout',
-    verifyRequest: '/api/auth/verify-request',
-  },
+  // pages: {
+  //   signIn: '/api/auth/signin',
+  //   signOut: '/api/auth/signout',
+  //   verifyRequest: '/api/auth/verify-request',
+  // },
 
   // Optional session secret
   // secret: process.env.SECRET,
