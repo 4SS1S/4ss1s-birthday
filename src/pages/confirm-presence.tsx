@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import { MdDone } from 'react-icons/md'
+import { VscError } from 'react-icons/vsc'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 
 import { DialogBox } from '@/components'
@@ -57,27 +59,45 @@ const ConfirmPresence = (
             {props.event.time}:{props.event.minutes}h no {props.event.location}?
           </strong>
 
-          <div className="font-thin mt-6 mb-2">
+          <div className="font-thin mt-6 mb-1">
             Ao confirmar estar no local, você estará aceitando também:
           </div>
-          <ul className="font-light ">
-            <li>
-              <span>✔️</span> Boa Comida
+          <ul className="font-light space-y-2">
+            <li className="flex space-x-1">
+              <span className="text-green-500 font-semibold text-2xl">
+                <MdDone />
+              </span>{' '}
+              <span>Boa Comida</span>
             </li>
-            <li>
-              <span>✔️</span>Ótimas cervejas
+            <li className="flex space-x-1">
+              <span className="text-green-500 font-semibold text-2xl">
+                <MdDone />
+              </span>{' '}
+              <span>Ótimas cervejas</span>
             </li>
-            <li>
-              <span>✔️</span>Ambiente agradável e descontraido
+            <li className="flex space-x-1">
+              <span className="text-green-500 font-semibold text-2xl">
+                <MdDone />
+              </span>{' '}
+              <span>Ambiente agradável e descontraido</span>
             </li>
-            <li>
-              <span>✔️</span>Sua presença é um grande presente ❤️
+            <li className="flex space-x-1">
+              <span className="text-green-500 font-semibold text-2xl">
+                <MdDone />
+              </span>{' '}
+              <span>Sua presença é um grande presente ❤️</span>
             </li>
-            <li>
-              <span>❌</span> Não precisa levar presente
+            <li className="flex space-x-2 items-center">
+              <span className="text-red-500 font-semibold text-xl">
+                <VscError />
+              </span>{' '}
+              <span>Não precisa levar presente</span>
             </li>
-            <li>
-              <span>❌</span>Não precisa gastar no local
+            <li className="flex space-x-2 items-center">
+              <span className="text-red-500 font-semibold text-xl">
+                <VscError />
+              </span>{' '}
+              <span>Não precisa gastar no local</span>
             </li>
           </ul>
 
@@ -104,7 +124,7 @@ const ConfirmPresence = (
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const session = await getSession(ctx)
 
-  let event = await prisma.event?.findFirst()
+  const event = await prisma.event?.findFirst()
   const user = await prisma.user?.findUnique({
     where: {
       email: session?.user?.email || '',
@@ -120,20 +140,20 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
     }
   }
 
-  if (!event) {
-    event = {
-      id: 0,
-      title: '',
-      description: '',
-      location: '4Beer Zona Sul',
-      end: new Date(),
-      start: new Date('2021-10-01:16:00:00'),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      latitude: 0,
-      longitude: 0,
-    }
-  }
+  // if (!event) {
+  //   event = {
+  //     id: 0,
+  //     title: '',
+  //     description: '',
+  //     location: '4Beer Zona Sul',
+  //     end: new Date(),
+  //     start: new Date('2021-10-01:16:00:00'),
+  //     createdAt: new Date(),
+  //     updatedAt: new Date(),
+  //     latitude: 0,
+  //     longitude: 0,
+  //   }
+  // }
 
   return {
     props: {
