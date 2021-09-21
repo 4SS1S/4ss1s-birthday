@@ -38,7 +38,7 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
     },
   })
 
-  if (!verified) {
+  if (Object.keys(verified).length === 0) {
     return {
       redirect: {
         destination: '/confirm-presence',
@@ -49,7 +49,16 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
 
   const verifiedUser = verified[verified.length - 1]
 
-  if (verifiedUser?.accepted) {
+  if (!verifiedUser) {
+    return {
+      redirect: {
+        destination: '/confirm-presence',
+        permanent: false,
+      },
+    }
+  }
+
+  if (verifiedUser.accepted) {
     return {
       redirect: {
         destination: '/home',
