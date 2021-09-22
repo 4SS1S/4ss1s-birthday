@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useSession, signIn, getSession } from 'next-auth/client'
 import { FaFacebookF } from 'react-icons/fa'
@@ -9,11 +9,18 @@ import Image from 'next/image'
 import Head from 'next/head'
 
 import { DialogBox } from '@/components'
+import { LoadingContext } from '@/store/loading'
 
 const Home = (
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) => {
   const [session, loading] = useSession()
+
+  const { setLoading } = useContext(LoadingContext)
+
+  useEffect(() => {
+    setLoading(loading)
+  }, [loading])
 
   const router = useRouter()
 
@@ -57,15 +64,6 @@ const Home = (
       router.push('/sign-in')
     }
   }, [session])
-
-  if (loading) {
-    return (
-      <div className="flex w-full h-full justify-center items-center">
-        <Header />
-        Carregando
-      </div>
-    )
-  }
 
   if (session) {
     return (

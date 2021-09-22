@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import { Provider } from 'next-auth/client'
 import Head from 'next/head'
 
+import '@/styles/globals.css'
 import { Header } from '@/components'
-import '../styles/globals.css'
+import { LoadingProvider } from '@/store/loading'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
@@ -15,11 +16,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Header />
+      <LoadingProvider>
+        <main>
+          <Header />
 
-        <Component {...pageProps} />
-      </main>
+          <Component {...pageProps} />
+        </main>
+      </LoadingProvider>
     </Provider>
   )
 }
