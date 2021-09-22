@@ -123,7 +123,7 @@ export const SidebarMenu = () => {
 							</li>
 						</Link>
 
-						<Link href="/bug-repport">
+						<Link href="/bug-report">
 							<li className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900">
 								<span>
 									<AiOutlineBug className="text-xl" />
