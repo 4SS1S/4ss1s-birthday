@@ -7,18 +7,25 @@ import OneSignal from 'react-onesignal'
 import { ProfilePicture, DialogBox } from '@/components'
 
 // eslint-disable-next-line prettier/prettier
-const Home = ({ session }: { session: Session }) => {
+const Home = ({ session }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 	const [initialized, setInitialized] = useState(false)
 
 	useEffect(() => {
 		OneSignal.init({
 			appId: process.env.NEXT_PUBLIC_ONESIGNAL_APP_ID || 'f8f8f8f8f',
+			promptOptions: {
+				actionMessage: 'Receber notificações',
+				acceptButtonText: 'Aceitar',
+				cancelButtonText: 'Cancelar',
+			},
 		}).then(() => {
 			OneSignal.showSlidedownPrompt().then(() => {
 				console.log('ok')
 				setInitialized(true)
 			})
 		})
+
+		OneSignal.showHttpPrompt()
 	}, [])
 
 	return (
