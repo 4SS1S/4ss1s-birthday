@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Session } from 'next-auth'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/client'
 import {
