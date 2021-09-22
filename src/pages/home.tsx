@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Session } from 'next-auth'
 import { getSession } from 'next-auth/client'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import OneSignal from 'react-onesignal'
 
 import { ProfilePicture, DialogBox } from '@/components'
 
 // eslint-disable-next-line prettier/prettier
 const Home = ({ session }: { session: Session }) => {
+	const [initialized, setInitialized] = useState(false)
+
+	useEffect(() => {
+		OneSignal.init({
+			appId: process.env.NEXT_PUBLIC_ONESIGNAL_APP_ID || 'f8f8f8f8f',
+		}).then(() => {
+			OneSignal.showSlidedownPrompt().then(() => {
+				console.log('ok')
+				setInitialized(true)
+			})
+		})
+	}, [])
+
 	return (
 		<div>
 			<div className="mt-12">
