@@ -110,11 +110,6 @@ export default class MyDocument extends Document {
 						property="og:image"
 						content="https://yourdomain.com/icons/apple-touch-icon.png"
 					/>
-
-					<script
-						src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
-						async={true}
-					></script>
 				</Head>
 				<body>
 					<Main />
