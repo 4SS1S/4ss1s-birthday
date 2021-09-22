@@ -7,7 +7,7 @@ import '@/styles/globals.css'
 import { Header } from '@/components'
 import { LoadingProvider } from '@/store/loading'
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
 	return (
 		<Provider session={pageProps.session}>
 			<Head>
