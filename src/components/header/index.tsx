@@ -5,24 +5,24 @@ import { useSession } from 'next-auth/client'
 import { SidebarMenu } from './sidebar-menu'
 
 export const Header = () => {
-  const [session] = useSession()
+	const [session] = useSession()
 
-  return (
-    <header>
-      <div className="flex p-4 justify-between shadow-2xl">
-        {session ? <SidebarMenu /> : <span />}
+	return (
+		<header>
+			<div className="flex p-4 justify-between shadow-2xl">
+				{session ? <SidebarMenu /> : <span />}
 
-        <Image
-          src="/assets/svg/Header.svg"
-          alt="Header"
-          width={277}
-          height={85}
-          placeholder="blur"
-          blurDataURL={'/assets/svg/Header.svg'}
-        />
+				<Image
+					src="/assets/svg/Header.svg"
+					alt="Header"
+					width={277}
+					height={85}
+					placeholder="blur"
+					blurDataURL={'/assets/svg/Header.svg'}
+				/>
 
-        <span></span>
-      </div>
-    </header>
-  )
+				<span></span>
+			</div>
+		</header>
+	)
 }

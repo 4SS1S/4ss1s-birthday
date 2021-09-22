@@ -24,7 +24,7 @@
         "eslint-plugin-prettier"
     ],
     "rules": {
-        "prettier/prettier": "error",
+        "prettier/prettier": "warn",
         "no-use-before-define": "off",
         "no-unused-vars": "off"
     }
