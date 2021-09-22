@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.13](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.12...v0.1.13) (2021-09-22)
+
+
+### Bug Fixes
+
+* one signal ([c17d321](https://github.com/mokkapps/changelog-generator-demo/commits/c17d321a247124b22c3ae3ed7c36a60f2e991233))
+
 ### [0.1.12](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.11...v0.1.12) (2021-09-22)
 
 ### [0.1.11](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.10...v0.1.11) (2021-09-22)
