@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.10](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.9...v0.1.10) (2021-09-22)
+
+
+### Bug Fixes
+
+* build fix ([367bab2](https://github.com/mokkapps/changelog-generator-demo/commits/367bab2a8dc4eca58e561f3aada45b9fee095d13))
+
+### [0.1.9](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.8...v0.1.9) (2021-09-22)
+
+
+### Features
+
+* change mind ([770f6ed](https://github.com/mokkapps/changelog-generator-demo/commits/770f6ed13f0bdd6129bd0372e14cd0d22becf225))
+* header ([717b31c](https://github.com/mokkapps/changelog-generator-demo/commits/717b31c6efa74c694b29d6ff670f9b1e50ed9d4e))
+* loading ([6c86c90](https://github.com/mokkapps/changelog-generator-demo/commits/6c86c9027c3093abb057c928d208b20dffde9088))
+* new pages ([c8ae1db](https://github.com/mokkapps/changelog-generator-demo/commits/c8ae1db05dba11846ef50ae96b087de981a1bb8f))
+* notification ([7bada3a](https://github.com/mokkapps/changelog-generator-demo/commits/7bada3a8174ee449138ed9dbda92388bbc8089f7))
+
+
+### Bug Fixes
+
+* db adapter ([9e3ee9d](https://github.com/mokkapps/changelog-generator-demo/commits/9e3ee9dc388ab2cffc8097bda65a718a229e7757))
+* fix auth error ([3c21a97](https://github.com/mokkapps/changelog-generator-demo/commits/3c21a97cfa915b8a78208d5c58b6fe82e37914cb))
+* fix commit 3a7ce64 ([4e6560d](https://github.com/mokkapps/changelog-generator-demo/commits/4e6560d7c8a2b3a2db860277aa4b35909dbe09c6))
+* fix header spacing on not logged ([1cdfe20](https://github.com/mokkapps/changelog-generator-demo/commits/1cdfe20d030664c0c8f95efaa48f69e78f2f76fa))
+* merge conflit ([baaca70](https://github.com/mokkapps/changelog-generator-demo/commits/baaca70954186ffa01e25dbc70e498e1b59d9a72))
+* name fix ([8a4993b](https://github.com/mokkapps/changelog-generator-demo/commits/8a4993b8014c6c3d71b08cce89318e3ab0725e31))
+* no event prevents ([ad11221](https://github.com/mokkapps/changelog-generator-demo/commits/ad11221cf5ed95d95825c1e2d4dd00d5688fcd8c))
+
 ### [0.1.8](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.7...v0.1.8) (2021-09-21)
 
 ### Features
