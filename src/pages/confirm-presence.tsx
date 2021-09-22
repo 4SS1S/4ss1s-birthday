@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import { MdDone } from 'react-icons/md'
 import { VscError } from 'react-icons/vsc'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 
+import { LoadingContext } from '@/store/loading'
 import { DialogBox } from '@/components'
 import { getSession } from 'next-auth/client'
 import { Session } from 'next-auth'
@@ -17,18 +18,24 @@ const ConfirmPresence = (
 
   const router = useRouter()
 
+  const { setLoading } = useContext(LoadingContext)
+
   const handleCancel = () => {
+    setLoading(true)
+
     axios
       .post('/api/event-confirmation', {
         userId: props.user.id,
         accepted: false,
       })
       .then(e => {
+        setLoading(false)
         router.push('/cancel')
       })
       .catch(err => {
         // TODO: create error page
         console.log(err)
+        setLoading(false)
       })
   }
 
