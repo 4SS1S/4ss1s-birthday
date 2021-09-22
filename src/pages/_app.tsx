@@ -2,12 +2,19 @@ import React, { useState, useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import { Provider } from 'next-auth/client'
 import Head from 'next/head'
+import { AnimatePresence, motion, AnimateSharedLayout } from 'framer-motion'
 
 import '@/styles/globals.css'
 import { Header } from '@/components'
 import { LoadingProvider } from '@/store/loading'
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
+	const variants = {
+		hidden: { opacity: 0, x: -200, y: 0 },
+		enter: { opacity: 1, x: 0, y: 0 },
+		exit: { opacity: 0, x: -500, y: -100 },
+	}
+
 	return (
 		<Provider session={pageProps.session}>
 			<Head>
@@ -17,11 +24,22 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 			</Head>
 
 			<LoadingProvider>
-				<main>
+				<motion.main
+					key={router.route}
+					variants={variants}
+					initial="enter"
+					animate="enter"
+					exit="exit"
+					transition={{
+						duration: 0.5,
+						bounceStiffness: 0.5,
+						bounceDamping: 0.5,
+					}}
+				>
 					<Header />
 
 					<Component {...pageProps} />
-				</main>
+				</motion.main>
 			</LoadingProvider>
 		</Provider>
 	)

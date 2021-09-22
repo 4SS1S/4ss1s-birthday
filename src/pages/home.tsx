@@ -3,6 +3,7 @@ import { Session } from 'next-auth'
 import { getSession } from 'next-auth/client'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import OneSignal from 'react-onesignal'
+import { motion } from 'framer-motion'
 
 import { ProfilePicture, DialogBox } from '@/components'
 import { prisma } from '../lib'
@@ -42,7 +43,25 @@ const Home = ({ session, event,confirmedUsers }: InferGetServerSidePropsType<typ
 	}, [])
 
 	return (
-		<div>
+		<motion.div
+			initial={{
+				x: '100vw',
+				opacity: 0,
+			}}
+			animate={{
+				x: 0,
+				opacity: 1,
+			}}
+			transition={{
+				type: 'spring',
+				stiffness: 300,
+				damping: 30,
+			}}
+			exit={{
+				x: '-100vw',
+				opacity: 0,
+			}}
+		>
 			<div className="mt-12">
 				<DialogBox>
 					<div
@@ -80,7 +99,7 @@ const Home = ({ session, event,confirmedUsers }: InferGetServerSidePropsType<typ
 					</div>
 				</DialogBox>
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 
