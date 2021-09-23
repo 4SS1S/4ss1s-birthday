@@ -45,7 +45,7 @@ const Home = ({ session, event,confirmedUsers }: InferGetServerSidePropsType<typ
 	return (
 		<motion.div
 			initial={{
-				x: '100vw',
+				x: '-1px',
 				opacity: 0,
 			}}
 			animate={{
