@@ -1,26 +1,26 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { EventConfirmationObject } from '../../classes'
+import { BugReportObject } from '@/classes'
 
-export default async function EventConfirmation(
+export default async function BugReport(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
-	const eoc = new EventConfirmationObject(req, res)
+	const bugObject = new BugReportObject(req, res)
 
 	if (req.method === 'GET') {
-		eoc.list()
+		bugObject.list()
 	}
 
 	if (req.method === 'POST') {
-		eoc.create()
+		bugObject.create()
 	}
 
 	if (req.method === 'PUT') {
-		eoc.update()
+		bugObject.update()
 	}
 
 	if (req.method === 'DELETE') {
-		eoc.delete()
+		bugObject.delete()
 	}
 }

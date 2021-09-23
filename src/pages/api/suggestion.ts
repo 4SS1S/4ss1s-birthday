@@ -1,26 +1,26 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { EventConfirmationObject } from '../../classes'
+import { SuggestionObject } from '@/classes'
 
-export default async function EventConfirmation(
+export default async function Suggestion(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
-	const eoc = new EventConfirmationObject(req, res)
+	const suggestion = new SuggestionObject(req, res)
 
 	if (req.method === 'GET') {
-		eoc.list()
+		suggestion.list()
 	}
 
 	if (req.method === 'POST') {
-		eoc.create()
+		suggestion.create()
 	}
 
 	if (req.method === 'PUT') {
-		eoc.update()
+		suggestion.update()
 	}
 
 	if (req.method === 'DELETE') {
-		eoc.delete()
+		suggestion.delete()
 	}
 }

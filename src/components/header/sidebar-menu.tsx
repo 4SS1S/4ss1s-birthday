@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Session } from 'next-auth'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/client'
 import {
 	AiOutlineMenu,
@@ -19,6 +19,8 @@ import { version } from 'src/../package.json'
 
 export const SidebarMenu = () => {
 	const [visible, setVisible] = useState(false)
+
+	const router = useRouter()
 
 	const session = useSession()
 
@@ -56,6 +58,12 @@ export const SidebarMenu = () => {
 				duration: 0.5,
 			},
 		},
+	}
+
+	const handleClick = (route: string) => {
+		setVisible(false)
+
+		router.push(route)
 	}
 
 	return (
@@ -96,62 +104,68 @@ export const SidebarMenu = () => {
 						</span>
 					</div>
 					<ul className="mt-4">
-						<Link href="/home">
-							<li className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900">
-								<span>
-									<AiOutlineHome className="text-xl" />
-								</span>
-								<span className="ml-8">Home</span>
-							</li>
-						</Link>
+						<li
+							className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900"
+							onClick={() => handleClick('/home')}
+						>
+							<span>
+								<AiOutlineHome className="text-xl" />
+							</span>
+							<span className="ml-8">Home</span>
+						</li>
 
-						<Link href="/suggestions">
-							<li className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900">
-								<span>
-									<AiOutlineEdit className="text-xl" />
-								</span>
-								<span className="ml-8">Dicas e sujestões</span>
-							</li>
-						</Link>
+						<li
+							className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900"
+							onClick={() => handleClick('/suggestions')}
+						>
+							<span>
+								<AiOutlineEdit className="text-xl" />
+							</span>
+							<span className="ml-8">Dicas e sujestões</span>
+						</li>
 
-						<Link href="/change-mind">
-							<li className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900">
-								<span>
-									<AiOutlineLink className="text-xl" />
-								</span>
-								<span className="ml-8">Mudar de ideia</span>
-							</li>
-						</Link>
+						<li
+							className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900"
+							onClick={() => handleClick('/change-mind')}
+						>
+							<span>
+								<AiOutlineLink className="text-xl" />
+							</span>
+							<span className="ml-8">Mudar de ideia</span>
+						</li>
 
-						<Link href="/bug-repport">
-							<li className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900">
-								<span>
-									<AiOutlineBug className="text-xl" />
-								</span>
-								<span className="ml-8">Achou algum bug?</span>
-							</li>
-						</Link>
+						<li
+							className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900"
+							onClick={() => handleClick('/bug-repport')}
+						>
+							<span>
+								<AiOutlineBug className="text-xl" />
+							</span>
+							<span className="ml-8">Achou algum bug?</span>
+						</li>
 
-						<Link href="/settings">
-							<li className="p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900">
-								<span>
-									<AiOutlineSetting className="text-xl" />
-								</span>
-								<span className="ml-8">Configurações</span>
-							</li>
-						</Link>
+						<li
+							className="p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900"
+							onClick={() => handleClick('/settings')}
+						>
+							<span>
+								<AiOutlineSetting className="text-xl" />
+							</span>
+							<span className="ml-8">Configurações</span>
+						</li>
 					</ul>
 					<div className="h-full"></div>
 					<div>
 						<span className="font-light text-sm">
-							<Link href="/logout">
-								<li className="border-t-2 border-b-2 p-4 border-opacity-25 flex items-center mb-4 cursor-pointer hover:bg-gray-900">
-									<span>
-										<AiOutlineLogout className="text-xl" />
-									</span>
-									<span className="ml-8">Sair</span>
-								</li>
-							</Link>
+							<li
+								className="border-t-2 border-b-2 p-4 border-opacity-25 flex items-center mb-4 cursor-pointer hover:bg-gray-900"
+								onClick={() => handleClick('/logout')}
+							>
+								<span>
+									<AiOutlineLogout className="text-xl" />
+								</span>
+								<span className="ml-8">Sair</span>
+							</li>
 							Aniversário do Assis
 							<br />
 							Versão: {version}
