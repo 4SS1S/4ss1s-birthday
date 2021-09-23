@@ -140,21 +140,17 @@ export class EventConfirmationObject {
 		// 	})
 		// }
 
-		if (!session?.user) {
+		if (!session?.user?.email) {
 			return this.res.status(401).json({
 				message: 'You must be logged in to perform this action',
 			})
 		}
 
-		const user = await prisma.user.findUnique({
-			where: {
-				email: session.user.email as string,
-			},
-		})
-
 		await prisma.userConfirmation.deleteMany({
 			where: {
-				userId: user?.id,
+				user: {
+					email: session.user.email,
+				},
 			},
 		})
 
