@@ -8,4 +8,8 @@ export default async function Post(req: NextApiRequest, res: NextApiResponse) {
 	if (req.method === 'GET') {
 		await postObject.list()
 	}
+
+	if (req.method === 'POST') {
+		await postObject.create()
+	}
 }

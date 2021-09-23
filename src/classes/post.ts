@@ -2,7 +2,17 @@ import { BirthdayObject } from './birthday-object'
 
 export class PostObject extends BirthdayObject {
 	async list() {
-		const data = await this.getPrisma().post.findMany()
+		const data = await this.getPrisma().post.findMany({
+			orderBy: {
+				id: 'desc',
+			},
+			include: {
+				user: true,
+				Comment: true,
+				PostDownvote: true,
+				PostUpdate: true,
+			},
+		})
 
 		return this.getRes().status(200).json(data)
 	}
@@ -10,35 +20,42 @@ export class PostObject extends BirthdayObject {
 	async create() {
 		const user = await this.getUserInfo()
 
-		if (!user) {
-			return this.getRes().status(401).json({
-				status: 'error',
-				message: 'Unauthorized',
-			})
-		}
+		try {
+			console.log('cheguei no try')
 
-		const body = this.getBody()
+			if (!user) {
+				return this.getRes().status(401).json({
+					status: 'error',
+					message: 'Unauthorized',
+				})
+			}
 
-		if (!body.title || !body.content) {
-			return this.getRes().status(400).json({
-				status: 'error',
-				message: 'Bad Request',
-			})
-		}
+			const body = this.getBody()
 
-		const data = await this.getPrisma().post.create({
-			data: {
-				title: body.title,
-				content: body.content,
-				user: {
-					connect: {
-						id: user.id,
+			if (!body.title || !body.content) {
+				return this.getRes().status(400).json({
+					status: 'error',
+					message: 'Bad Request',
+				})
+			}
+
+			console.log('cheguei no salvar')
+
+			const data = await this.getPrisma().post.create({
+				data: {
+					content: body.content,
+					user: {
+						connect: {
+							id: user.id,
+						},
 					},
 				},
-			},
-		})
+			})
 
-		return this.getRes().status(201).json(data)
+			return this.getRes().status(201).json(data)
+		} catch (err) {
+			return this.getRes().status(500).json(err)
+		}
 	}
 
 	async read() {
@@ -93,7 +110,6 @@ export class PostObject extends BirthdayObject {
 				id: post,
 			},
 			data: {
-				title: this.getBody().title,
 				content: this.getBody().content,
 			},
 		})

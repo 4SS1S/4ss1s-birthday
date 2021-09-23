@@ -5,7 +5,7 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import OneSignal from 'react-onesignal'
 import { motion } from 'framer-motion'
 
-import { ProfilePicture, DialogBox } from '@/components'
+import { ProfilePicture, DialogBox, PostCreator, PostShow } from '@/components'
 import { prisma } from '../lib'
 
 interface HomeProps {
@@ -98,6 +98,9 @@ const Home = ({ session, event,confirmedUsers }: InferGetServerSidePropsType<typ
 						.<p>Até agora são {confirmedUsers} pessoas confirmadas!!!</p>
 					</div>
 				</DialogBox>
+
+				<PostCreator />
+				<PostShow />
 			</div>
 		</motion.div>
 	)

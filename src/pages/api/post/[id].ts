@@ -9,10 +9,6 @@ export default async function Post(req: NextApiRequest, res: NextApiResponse) {
 		await postObject.read()
 	}
 
-	if (req.method === 'POST') {
-		await postObject.create()
-	}
-
 	if (req.method === 'PUT') {
 		await postObject.update()
 	}
