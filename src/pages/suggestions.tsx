@@ -5,7 +5,7 @@ const Suggestions = props => {
 	return (
 		<motion.div
 			initial={{
-				x: '100vw',
+				x: '-1px',
 				opacity: 0,
 			}}
 			animate={{
