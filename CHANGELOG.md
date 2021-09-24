@@ -2,25 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.1.16](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.15...v0.1.16) (2021-09-23)
-
-
-### Features
-
-* animations ([f145d14](https://github.com/mokkapps/changelog-generator-demo/commits/f145d1476cb0df419f61fecfbeea514e141af635))
-* more changes on home ([232e37b](https://github.com/mokkapps/changelog-generator-demo/commits/232e37be8d2d117b231f44ce64dd4532b4ac690f))
-* new classes and api methods ([720c425](https://github.com/mokkapps/changelog-generator-demo/commits/720c4253f189560f0ff8087fc66300a364d5eca9))
-* posts ([5bcecaa](https://github.com/mokkapps/changelog-generator-demo/commits/5bcecaac3f2e82b4d2cedd89c714da6add519a4d))
-* schemas ([bda2326](https://github.com/mokkapps/changelog-generator-demo/commits/bda23268af0c864d147fb567a86137f1f5777894))
-* unique confirmation ([1712244](https://github.com/mokkapps/changelog-generator-demo/commits/1712244732386165a3f29061b724473d11a58788))
+### [0.1.19](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.18...v0.1.19) (2021-09-24)
 
 
 ### Bug Fixes
 
-* bug report call route ([684623e](https://github.com/mokkapps/changelog-generator-demo/commits/684623e82185a329ec3edf078aa1ad5eaec9de67))
-* change mind ([301651e](https://github.com/mokkapps/changelog-generator-demo/commits/301651ee98c0dfb7e7c6d6a20c7dc9a77706b2fa))
-* loading ([d0e63f1](https://github.com/mokkapps/changelog-generator-demo/commits/d0e63f16325c15d39302840021b44d7622848c09))
-* menu ([fecd096](https://github.com/mokkapps/changelog-generator-demo/commits/fecd096648a46d0fb46b8f002c09fba072611b7b))
+* event website ([b304baa](https://github.com/mokkapps/changelog-generator-demo/commits/b304baadb2d4fbfca3a710885c4c514e0cfaccb4))
+
+### [0.1.18](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.16...v0.1.18) (2021-09-24)
+
+
+### Features
+
+* linkt ot the event location ([4a41073](https://github.com/mokkapps/changelog-generator-demo/commits/4a41073e757b0cbd603730988dbab17127bf4cdf))
+* post paginator ([76c5344](https://github.com/mokkapps/changelog-generator-demo/commits/76c5344777e3e13c09aa36b4ac57a8fc36744eed))
+* posts ([6695f90](https://github.com/mokkapps/changelog-generator-demo/commits/6695f906bec3cb165ffc47529a6cb816ec9af06e))
+* who goes ([e1ee3b0](https://github.com/mokkapps/changelog-generator-demo/commits/e1ee3b0ee27aca92f6f521127b1fbf20a31629dc))
+
+
+### Bug Fixes
+
+* migrations ([acd50c2](https://github.com/mokkapps/changelog-generator-demo/commits/acd50c2f85ec0a8fe7b94ed71897a43da1849723))
+* user not goes ([207d9d9](https://github.com/mokkapps/changelog-generator-demo/commits/207d9d954d26a3a85ada3a27662e6f77095d2886))
+* users info ([6a3352a](https://github.com/mokkapps/changelog-generator-demo/commits/6a3352ac2e8352f14fc40832498db61a2111e224))
+
+### [0.1.16](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.15...v0.1.16) (2021-09-23)
+
+### Features
+
+- animations ([f145d14](https://github.com/mokkapps/changelog-generator-demo/commits/f145d1476cb0df419f61fecfbeea514e141af635))
+- more changes on home ([232e37b](https://github.com/mokkapps/changelog-generator-demo/commits/232e37be8d2d117b231f44ce64dd4532b4ac690f))
+- new classes and api methods ([720c425](https://github.com/mokkapps/changelog-generator-demo/commits/720c4253f189560f0ff8087fc66300a364d5eca9))
+- posts ([5bcecaa](https://github.com/mokkapps/changelog-generator-demo/commits/5bcecaac3f2e82b4d2cedd89c714da6add519a4d))
+- schemas ([bda2326](https://github.com/mokkapps/changelog-generator-demo/commits/bda23268af0c864d147fb567a86137f1f5777894))
+- unique confirmation ([1712244](https://github.com/mokkapps/changelog-generator-demo/commits/1712244732386165a3f29061b724473d11a58788))
+
+### Bug Fixes
+
+- bug report call route ([684623e](https://github.com/mokkapps/changelog-generator-demo/commits/684623e82185a329ec3edf078aa1ad5eaec9de67))
+- change mind ([301651e](https://github.com/mokkapps/changelog-generator-demo/commits/301651ee98c0dfb7e7c6d6a20c7dc9a77706b2fa))
+- loading ([d0e63f1](https://github.com/mokkapps/changelog-generator-demo/commits/d0e63f16325c15d39302840021b44d7622848c09))
+- menu ([fecd096](https://github.com/mokkapps/changelog-generator-demo/commits/fecd096648a46d0fb46b8f002c09fba072611b7b))
 
 ### [0.1.15](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.14...v0.1.15) (2021-09-22)
 

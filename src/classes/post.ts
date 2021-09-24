@@ -7,11 +7,17 @@ export class PostObject extends BirthdayObject {
 				id: 'desc',
 			},
 			include: {
-				user: true,
+				user: {
+					select: {
+						name: true,
+						image: true,
+					},
+				},
 				Comment: true,
-				PostDownvote: true,
-				PostUpdate: true,
+				// PostUpvote: true,
 			},
+			take: parseInt((this.getParams().take as string) || '25'),
+			skip: parseInt((this.getParams().skip as string) || '0'),
 		})
 
 		return this.getRes().status(200).json(data)
