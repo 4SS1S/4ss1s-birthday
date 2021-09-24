@@ -1,4 +1,5 @@
+export * from './post'
 export * from './header'
+export * from './wrapper'
 export * from './dialog-box'
 export * from './profile-picture'
-export * from './post'
