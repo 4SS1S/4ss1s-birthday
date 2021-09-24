@@ -7,7 +7,12 @@ export class PostObject extends BirthdayObject {
 				id: 'desc',
 			},
 			include: {
-				user: true,
+				user: {
+					select: {
+						name: true,
+						image: true,
+					},
+				},
 				Comment: true,
 				PostDownvote: true,
 				PostUpdate: true,
