@@ -51,7 +51,7 @@ model User {
   updatedAt     DateTime  @default(now()) @map(name: "updated_at")
 
   UserConfirmation UserConfirmation[]
-  UserNotGoesTo    UserNotGoesTo[]
+  // UserNotGoesTo    UserNotGoesTo[]
   UserSuggestion   UserSuggestion[]
   Post             Post[]
   Comment          Comment[]
@@ -213,13 +213,13 @@ model AllowNotifications {
   @@map(name: "allow_notifications")
 }
 
-model UserNotGoesTo {
-  id        Int      @id @default(autoincrement())
-  user      User     @relation(fields: [userId], references: [id])
-  userId    Int      @map(name: "user_id")
-  content   String   @map(name: "content")
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @default(now()) @map(name: "updated_at")
+// model UserNotGoesTo {
+//   id        Int      @id @default(autoincrement())
+//   user      User     @relation(fields: [userId], references: [id])
+//   userId    Int      @map(name: "user_id")
+//   content   String   @map(name: "content")
+//   createdAt DateTime @default(now()) @map(name: "created_at")
+//   updatedAt DateTime @default(now()) @map(name: "updated_at")
 
-  @@map(name: "user_not_goes_to")
-}
+//   @@map(name: "user_not_goes_to")
+// }
