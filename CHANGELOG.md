@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.18](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.16...v0.1.18) (2021-09-24)
+
+
+### Features
+
+* linkt ot the event location ([4a41073](https://github.com/mokkapps/changelog-generator-demo/commits/4a41073e757b0cbd603730988dbab17127bf4cdf))
+* post paginator ([76c5344](https://github.com/mokkapps/changelog-generator-demo/commits/76c5344777e3e13c09aa36b4ac57a8fc36744eed))
+* posts ([6695f90](https://github.com/mokkapps/changelog-generator-demo/commits/6695f906bec3cb165ffc47529a6cb816ec9af06e))
+* who goes ([e1ee3b0](https://github.com/mokkapps/changelog-generator-demo/commits/e1ee3b0ee27aca92f6f521127b1fbf20a31629dc))
+
+
+### Bug Fixes
+
+* migrations ([acd50c2](https://github.com/mokkapps/changelog-generator-demo/commits/acd50c2f85ec0a8fe7b94ed71897a43da1849723))
+* user not goes ([207d9d9](https://github.com/mokkapps/changelog-generator-demo/commits/207d9d954d26a3a85ada3a27662e6f77095d2886))
+* users info ([6a3352a](https://github.com/mokkapps/changelog-generator-demo/commits/6a3352ac2e8352f14fc40832498db61a2111e224))
+
 ### [0.1.16](https://github.com/mokkapps/changelog-generator-demo/compare/v0.1.15...v0.1.16) (2021-09-23)
 
 ### Features
