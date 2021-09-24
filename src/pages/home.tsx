@@ -3,9 +3,14 @@ import { Session } from 'next-auth'
 import { getSession } from 'next-auth/client'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import OneSignal from 'react-onesignal'
-import { motion } from 'framer-motion'
 
-import { ProfilePicture, DialogBox, PostCreator, PostShow } from '@/components'
+import {
+	ProfilePicture,
+	DialogBox,
+	PostCreator,
+	PostShow,
+	Wrapper,
+} from '@/components'
 import { prisma } from '../lib'
 
 interface HomeProps {
@@ -43,25 +48,7 @@ const Home = ({ session, event,confirmedUsers }: InferGetServerSidePropsType<typ
 	}, [])
 
 	return (
-		<motion.div
-			initial={{
-				x: '-1px',
-				opacity: 0,
-			}}
-			animate={{
-				x: 0,
-				opacity: 1,
-			}}
-			transition={{
-				type: 'spring',
-				stiffness: 300,
-				damping: 30,
-			}}
-			exit={{
-				x: '-100vw',
-				opacity: 0,
-			}}
-		>
+		<Wrapper>
 			<div className="mt-12">
 				<DialogBox>
 					<div
@@ -99,10 +86,10 @@ const Home = ({ session, event,confirmedUsers }: InferGetServerSidePropsType<typ
 					</div>
 				</DialogBox>
 
-				<PostCreator />
+				{/* <PostCreator /> */}
 				<PostShow />
 			</div>
-		</motion.div>
+		</Wrapper>
 	)
 }
 
@@ -133,7 +120,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 				location: event?.location,
 				date: `${new Date(event?.start as Date).getDate()}`,
 				month: `${new Date(event?.start as Date).getMonth() + 1}`,
-				time: `${new Date(event?.start as Date).getHours() + 3}`,
+				time: `${new Date(event?.start as Date).getHours()}`,
 				minutes: `${new Date(event?.start as Date).getMinutes()}`,
 			},
 			confirmedUsers: users.length - 1,
