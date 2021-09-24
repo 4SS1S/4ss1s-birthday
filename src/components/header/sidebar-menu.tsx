@@ -12,6 +12,7 @@ import {
 	AiOutlineSetting,
 	AiOutlineLogout,
 	AiOutlineBug,
+	AiOutlineUser,
 } from 'react-icons/ai'
 
 import { ProfilePicture } from '..'
@@ -142,6 +143,16 @@ export const SidebarMenu = () => {
 								<AiOutlineBug className="text-xl" />
 							</span>
 							<span className="ml-8">Achou algum bug?</span>
+						</li>
+
+						<li
+							className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900"
+							onClick={() => handleClick('/who-goes')}
+						>
+							<span>
+								<AiOutlineUser className="text-xl" />
+							</span>
+							<span className="ml-8">Quem vai?</span>
 						</li>
 
 						<li
