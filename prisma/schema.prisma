@@ -56,8 +56,8 @@ model User {
   Post             Post[]
   Comment          Comment[]
   Suggestion       Suggestion[]
-  PostUpdate       PostUpdate[]
-  PostDownvote     PostDownvote[]
+  // PostUpvote       PostUpvote[]
+  // PostDownvote     PostDownvote[]
   @@map(name: "users")
 }
 
@@ -92,35 +92,35 @@ model Post {
   updatedAt   DateTime  @default(now()) @map(name: "updated_at")
   publishedAt DateTime? @map(name: "published_at")
 
-  Comment      Comment[]
-  PostUpdate   PostUpdate[]
-  PostDownvote PostDownvote[]
+  Comment Comment[]
+  // PostUpvote PostUpvote[]
+  // PostDownvote PostDownvote[]
   @@map(name: "posts")
 }
 
-model PostUpdate {
-  id        Int      @id @default(autoincrement())
-  post      Post     @relation(fields: [postId], references: [id])
-  postId    Int      @map(name: "post_id")
-  user      User     @relation(fields: [userId], references: [id])
-  userId    Int      @map(name: "user_id")
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @default(now()) @map(name: "updated_at")
+// model PostUpvote {
+//   id        Int      @id @default(autoincrement())
+//   post      Post     @relation(fields: [postId], references: [id])
+//   postId    Int      @map(name: "post_id")
+//   user      User     @relation(fields: [userId], references: [id])
+//   userId    Int      @map(name: "user_id")
+//   createdAt DateTime @default(now()) @map(name: "created_at")
+//   updatedAt DateTime @default(now()) @map(name: "updated_at")
 
-  @@map(name: "post_updates")
-}
+//   @@map(name: "post_updates")
+// }
 
-model PostDownvote {
-  id        Int      @id @default(autoincrement())
-  post      Post     @relation(fields: [postId], references: [id])
-  postId    Int      @map(name: "post_id")
-  user      User     @relation(fields: [userId], references: [id])
-  userId    Int      @map(name: "user_id")
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @default(now()) @map(name: "updated_at")
+// model PostDownvote {
+//   id        Int      @id @default(autoincrement())
+//   post      Post     @relation(fields: [postId], references: [id])
+//   postId    Int      @map(name: "post_id")
+//   user      User     @relation(fields: [userId], references: [id])
+//   userId    Int      @map(name: "user_id")
+//   createdAt DateTime @default(now()) @map(name: "created_at")
+//   updatedAt DateTime @default(now()) @map(name: "updated_at")
 
-  @@map(name: "post_downvotes")
-}
+//   @@map(name: "post_downvotes")
+// }
 
 model Comment {
   id          Int       @id @default(autoincrement())
