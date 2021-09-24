@@ -51,13 +51,13 @@ model User {
   updatedAt     DateTime  @default(now()) @map(name: "updated_at")
 
   UserConfirmation UserConfirmation[]
-  // UserNotGoesTo    UserNotGoesTo[]
+  UserNotGoesTo    UserNotGoesTo[]
   UserSuggestion   UserSuggestion[]
   Post             Post[]
   Comment          Comment[]
   Suggestion       Suggestion[]
-  // PostUpvote       PostUpvote[]
-  // PostDownvote     PostDownvote[]
+  PostUpvote       PostUpvote[]
+  PostDownvote     PostDownvote[]
   @@map(name: "users")
 }
 
@@ -92,35 +92,35 @@ model Post {
   updatedAt   DateTime  @default(now()) @map(name: "updated_at")
   publishedAt DateTime? @map(name: "published_at")
 
-  Comment Comment[]
-  // PostUpvote PostUpvote[]
-  // PostDownvote PostDownvote[]
+  Comment      Comment[]
+  PostUpvote   PostUpvote[]
+  PostDownvote PostDownvote[]
   @@map(name: "posts")
 }
 
-// model PostUpvote {
-//   id        Int      @id @default(autoincrement())
-//   post      Post     @relation(fields: [postId], references: [id])
-//   postId    Int      @map(name: "post_id")
-//   user      User     @relation(fields: [userId], references: [id])
-//   userId    Int      @map(name: "user_id")
-//   createdAt DateTime @default(now()) @map(name: "created_at")
-//   updatedAt DateTime @default(now()) @map(name: "updated_at")
+model PostUpvote {
+  id        Int      @id @default(autoincrement())
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    Int      @map(name: "post_id")
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int      @map(name: "user_id")
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @default(now()) @map(name: "updated_at")
 
-//   @@map(name: "post_updates")
-// }
+  @@map(name: "post_updates")
+}
 
-// model PostDownvote {
-//   id        Int      @id @default(autoincrement())
-//   post      Post     @relation(fields: [postId], references: [id])
-//   postId    Int      @map(name: "post_id")
-//   user      User     @relation(fields: [userId], references: [id])
-//   userId    Int      @map(name: "user_id")
-//   createdAt DateTime @default(now()) @map(name: "created_at")
-//   updatedAt DateTime @default(now()) @map(name: "updated_at")
+model PostDownvote {
+  id        Int      @id @default(autoincrement())
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    Int      @map(name: "post_id")
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int      @map(name: "user_id")
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @default(now()) @map(name: "updated_at")
 
-//   @@map(name: "post_downvotes")
-// }
+  @@map(name: "post_downvotes")
+}
 
 model Comment {
   id          Int       @id @default(autoincrement())
@@ -212,13 +212,13 @@ model AllowNotifications {
   @@map(name: "allow_notifications")
 }
 
-// model UserNotGoesTo {
-//   id        Int      @id @default(autoincrement())
-//   user      User     @relation(fields: [userId], references: [id])
-//   userId    Int      @map(name: "user_id")
-//   content   String   @map(name: "content")
-//   createdAt DateTime @default(now()) @map(name: "created_at")
-//   updatedAt DateTime @default(now()) @map(name: "updated_at")
+model UserNotGoesTo {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int      @map(name: "user_id")
+  content   String   @map(name: "content")
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @default(now()) @map(name: "updated_at")
 
-//   @@map(name: "user_not_goes_to")
-// }
+  @@map(name: "user_not_goes_to")
+}
