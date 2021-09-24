@@ -18,19 +18,24 @@ interface WhoGoesProps {
 	data: DataProps[]
 }
 
-const WhoGoes = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const WhoGoes = (
+	props: InferGetServerSidePropsType<typeof getServerSideProps>
+) => {
 	return (
 		<Wrapper>
 			<div className="w-full block text-center font-bold text-2xl mb-8 mt-8">
 				<h1>Lista de presença</h1>
 			</div>
-			<div className="w-full flex justify-center space-y-4">
+			<div className="w-full flex justify-center space-y-4 flex-col pl-16">
 				{props.data.map(item => (
-					<div key={item.user.name} className="flex items-center space-x-4">
+					<div
+						key={item.user.name}
+						className="flex items-center space-x-4 w-full"
+					>
 						<img
 							src={item.user.image}
 							alt={item.user.name}
-							width="90"
+							width="60"
 							className="rounded-full"
 						/>
 						<div>
