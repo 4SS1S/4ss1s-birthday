@@ -1,4 +1,4 @@
-export * from './post'
+export * from './feed'
 export * from './header'
 export * from './wrapper'
 export * from './dialog-box'
