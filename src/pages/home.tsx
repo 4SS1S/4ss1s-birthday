@@ -4,13 +4,7 @@ import { getSession } from 'next-auth/client'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import OneSignal from 'react-onesignal'
 
-import {
-	ProfilePicture,
-	DialogBox,
-	PostCreator,
-	PostShow,
-	Wrapper,
-} from '@/components'
+import { ProfilePicture, DialogBox, FeedWrapper, Wrapper } from '@/components'
 import { prisma } from '../lib'
 
 interface HomeProps {
@@ -86,8 +80,7 @@ const Home = ({ session, event,confirmedUsers }: InferGetServerSidePropsType<typ
 					</div>
 				</DialogBox>
 
-				{/* <PostCreator /> */}
-				<PostShow />
+				<FeedWrapper user={session} />
 			</div>
 		</Wrapper>
 	)

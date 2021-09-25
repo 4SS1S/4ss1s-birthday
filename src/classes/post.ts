@@ -27,8 +27,6 @@ export class PostObject extends BirthdayObject {
 		const user = await this.getUserInfo()
 
 		try {
-			console.log('cheguei no try')
-
 			if (!user) {
 				return this.getRes().status(401).json({
 					status: 'error',
@@ -38,14 +36,12 @@ export class PostObject extends BirthdayObject {
 
 			const body = this.getBody()
 
-			if (!body.title || !body.content) {
+			if (!body.content) {
 				return this.getRes().status(400).json({
 					status: 'error',
 					message: 'Bad Request',
 				})
 			}
-
-			console.log('cheguei no salvar')
 
 			const data = await this.getPrisma().post.create({
 				data: {
