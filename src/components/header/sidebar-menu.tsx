@@ -115,7 +115,7 @@ export const SidebarMenu = () => {
 							<span className="ml-8">Home</span>
 						</li>
 
-						<li
+						{/* <li
 							className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900"
 							onClick={() => handleClick('/suggestions')}
 						>
@@ -123,7 +123,7 @@ export const SidebarMenu = () => {
 								<AiOutlineEdit className="text-xl" />
 							</span>
 							<span className="ml-8">Dicas e sujestões</span>
-						</li>
+						</li> */}
 
 						<li
 							className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900"
@@ -135,19 +135,19 @@ export const SidebarMenu = () => {
 							<span className="ml-8">Mudar de ideia</span>
 						</li>
 
-						<li
+						{/* <li
 							className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900"
-							onClick={() => handleClick('/bug-repport')}
+							onClick={() => handleClick('/bug-report')}
 						>
 							<span>
 								<AiOutlineBug className="text-xl" />
 							</span>
 							<span className="ml-8">Achou algum bug?</span>
-						</li>
+						</li> */}
 
 						<li
 							className="border-b-2 p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900"
-							onClick={() => handleClick('/who-goes')}
+							onClick={() => handleClick('/event/1')}
 						>
 							<span>
 								<AiOutlineUser className="text-xl" />
@@ -155,7 +155,7 @@ export const SidebarMenu = () => {
 							<span className="ml-8">Quem vai?</span>
 						</li>
 
-						<li
+						{/* <li
 							className="p-4 border-opacity-25 flex items-center cursor-pointer hover:bg-gray-900"
 							onClick={() => handleClick('/settings')}
 						>
@@ -163,7 +163,7 @@ export const SidebarMenu = () => {
 								<AiOutlineSetting className="text-xl" />
 							</span>
 							<span className="ml-8">Configurações</span>
-						</li>
+						</li> */}
 					</ul>
 					<div className="h-full"></div>
 					<div>
